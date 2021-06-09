@@ -57,9 +57,14 @@
 // });
 
 let user = {
-	name:'John',
-	surname: 'Tiner' ,
-	age: 32,
-	isStrudent: false,
-	textColor: 'red',
+
 };
+
+userName.addEventListener('change', (e) => {
+	user.name = e.target.value;
+});
+
+creationButton.addEventListener('click', (e) => {
+	e.preventDefault();
+	console.log(user);
+})
