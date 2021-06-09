@@ -7,11 +7,7 @@
 //onfocus
 
 
-let user = {
-	name: 'Rajif',
-	surname: 'Das',
-	personalId: 'x23x123x22',
-}
+
 
 
 
@@ -24,29 +20,46 @@ let user = {
 // 	console.log('blur');
 // });
 
-ourInput.addEventListener('focus', (e) => {
-	e.target.style.color = '';
+// ourInput.addEventListener('focus', (e) => {
+// 	e.target.style.color = '';
 
-});
-ourInput.addEventListener('focus', (event) => {
-	event.target.style.color = '';
-});
+// });
+// ourInput.addEventListener('focus', (event) => {
+// 	event.target.style.color = '';
+// });
 
-ourInput.addEventListener('change', (event) => {
-	if (event.target.value.length < 8) {
-		event.target.style.color = 'red';
-		errorSection.innerText = `${event.target.value} is invaid`;
-	} else {
-		const li = document.createElement('li');
-		li.innerText = event.target.value;
-		list.append(li);
-		errorSection.innerText = '';
-		event.target.value = '';
-	}
-});
+// ourInput.addEventListener('change', (event) => {
+// 	if (event.target.value.length < 8) {
+// 		event.target.style.color = 'red';
+// 		errorSection.innerText = `${event.target.value} is invaid`;
+// 	} else {
+// 		const li = document.createElement('li');
+// 		li.innerText = event.target.value;
+// 		list.append(li);
+// 		errorSection.innerText = '';
+// 		event.target.value = '';
+// 	}
+// });
 
 
-ourCheckbox.addEventListener('change', (e) => {
-console.log('event checkbox');
-console.log(e.target.checked)
-})
+// ourCheckbox.addEventListener('change', (e) => {
+// 	console.log(e.target.checked)
+// });
+
+
+// const radioButtonsCollections = document.getElementsByName('radioSection');
+// console.log(radioButtonsCollections)
+
+// radioButtonsCollections.forEach(element => {
+// 	element.addEventListener('change', (e) => {
+// 		console.log(e.target.value)
+// 	})
+// });
+
+let user = {
+	name:'John',
+	surname: 'Tiner' ,
+	age: 32,
+	isStrudent: false,
+	textColor: 'red',
+};

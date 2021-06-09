@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,16 +9,35 @@
 	<script defer src="./script.js"></script>
 	<link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-	
+
 	<form action="">
-	
-		<div><label for="ourInput"><input placeholder="textOur" type="text" name="inpt" value="" id="ourInput"> Our
-				input</label>
+
+		<div><label for="userName"><input placeholder="textOur" type="text" value="" id="userName"> Name</label>
 		</div>
-		<label for="ourCheckbox"><input type="checkbox" id="ourCheckbox" name="checkbox">Our checkbox</label>
+		<div><label for="userSureName"><input placeholder="textOur" type="text" value="" id="userSureName">
+				Surename</label>
+		</div>
+		<div><label for="userAge"><input type="number" value="42" id="userAge"> Age</label>
+		</div>
+		<label for=""><input type="checkbox" id="isStudent" checked>Is student?</label>
+
+		<div><label for="firstRadio"><input checked type="radio" id="firstRadio" name="radioSection"
+					value="red">Red</label>
+		</div>
+		<div><label for="secondRadio"><input type="radio" id="secondRadio" name="radioSection" value="blue">Blue</label>
+		</div>
+		<div><label for="thirdRadio"><input type="radio" id="thirdRadio" name="radioSection" value="green">Green</label>
+		</div>
+
+
+		<button>Create</button>
+
+
 	</form>
 
 
 </body>
+
 </html>
