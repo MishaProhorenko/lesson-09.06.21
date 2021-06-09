@@ -95,12 +95,18 @@ creationButton.addEventListener('click', (e) => {
 	${userSureName.value}
 	${userAge.value}`;
 
-	li1.style.color = user['text color'];
-	if (isStudent.checked === true){
+	radioCollections.forEach(item => {
+		if (item.checked) {
+			li1.style.color = item.value
+		}
+	})
+	if (isStudent.checked) {
 		li1.style.fontWeight = 'bold';
-	} 
+	}
 	list.append(li1);
 
+	user = {};
+	form.reset();
 })
 
 
