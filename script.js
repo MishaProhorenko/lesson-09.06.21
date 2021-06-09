@@ -60,11 +60,47 @@ let user = {
 
 };
 
+
+const form = document.forms[0];
+console.dir(form)
+
+
 userName.addEventListener('change', (e) => {
 	user.name = e.target.value;
 });
+userSureName.addEventListener('change', (e) => {
+	user.surename = e.target.value;
+});
+userAge.addEventListener('change', (e) => {
+	user.age = Number(e.target.value);
+});
+isStudent.addEventListener('click', (e) => {
+	user['is student'] = e.target.checked;
+})
+
+let radioCollections = document.getElementsByName('radioSection');
+radioCollections.forEach(element => {
+	element.addEventListener('click', (e) => {
+		user['text color'] = e.target.value;
+	})
+});
+
 
 creationButton.addEventListener('click', (e) => {
 	e.preventDefault();
 	console.log(user);
+	const li1 = document.createElement('li');
+
+	li1.innerText = `${userName.value}
+	${userSureName.value}
+	${userAge.value}`;
+
+	li1.style.color = user['text color'];
+	if (isStudent.checked === true){
+		li1.style.fontWeight = 'bold';
+	} 
+	list.append(li1);
+
 })
+
+
