@@ -137,8 +137,12 @@ creationButton.addEventListener('click', (e) => {
 
 searchInput.addEventListener('input', (e) => {
 	const filterItem = arrayOfUsers.filter(item => {
-		if (item.surename.toLowerCase().includes(e.target.value)) return true;
-		return false;
+		if (item.surename.toLowerCase().includes(e.target.value)){
+			return true;
+		} else{
+			return false;
+		}
+		
 	})
 
 	renderList(filterItem)
