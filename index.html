@@ -14,30 +14,41 @@
 
 	<form action="">
 
-		<div><label for="userName"><input type="text" value="" id="userName"> Name</label>
-		</div>
-		<div><label for="userSureName"><input type="text" value="" id="userSureName">
-				Surename</label>
-		</div>
-		<div><label for="userAge"><input type="number" value="" id="userAge"> Age</label>
-		</div>
-		<label for=""><input type="checkbox" id="isStudent" checked>Is student?</label>
 
-		<div><label for="firstRadio"><input checked type="radio" id="firstRadio" name="radioSection"
-					value="red">Red</label>
-		</div>
-		<div><label for="secondRadio"><input type="radio" id="secondRadio" name="radioSection" value="blue">Blue</label>
-		</div>
-		<div><label for="thirdRadio"><input type="radio" id="thirdRadio" name="radioSection" value="green">Green</label>
-		</div>
+		<fieldset>
+			<legend>Creation section</legend>
+			<div><label for="userName"><input type="text" value="" id="userName"> Name</label>
+			</div>
+			<div><label for="userSureName"><input type="text" value="" id="userSureName">
+					Surename</label>
+			</div>
+			<div><label for="userAge"><input type="number" value="" id="userAge"> Age</label>
+			</div>
+			<label for=""><input type="checkbox" id="isStudent" checked>Is student?</label>
 
+			<div><label for="firstRadio"><input checked type="radio" id="firstRadio" name="radioSection"
+						value="red">Red</label>
+			</div>
+			<div><label for="secondRadio"><input type="radio" id="secondRadio" name="radioSection"
+						value="blue">Blue</label>
+			</div>
+			<div><label for="thirdRadio"><input type="radio" id="thirdRadio" name="radioSection"
+						value="green">Green</label>
+			</div>
 
-		<button id="creationButton" type="">Create</button>
-
-
+			<button id="creationButton" type="">Create</button>
+		</fieldset>
+		<fieldset>
+			<legend>Search</legend>
+			<input type="text" id="searchInput">
+			<div><label for="sortByAgeInput"><input type="checkbox" id="sortByAgeInput">Sort By Age</label></div>
+		</fieldset>
+		<ol id="list">
+			
+		</ol>
 	</form>
 
-	<ol id="list"></ol>
+
 </body>
 
 </html>

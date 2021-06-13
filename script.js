@@ -60,6 +60,33 @@ let user = {
 
 };
 
+let arrayOfUsers = [
+	{
+		name: 'David',
+		surename: 'Ouhs',
+		age: 44,
+	},
+	{
+		name: 'Rick',
+		surename: 'Fidner',
+		age: 13,
+	},
+	{
+		name: 'Georg',
+		surename: 'Kilman',
+		age: 55,
+	},
+	{
+		name: 'Rob',
+		surename: 'Dikson',
+		age: 42,
+	},
+	{
+		name: 'Poul',
+		surename: 'Rinnd',
+		age: 21,
+	},
+];
 
 const form = document.forms[0];
 console.dir(form)
@@ -67,6 +94,9 @@ console.dir(form)
 
 userName.addEventListener('change', (e) => {
 	user.name = e.target.value;
+});
+userName.addEventListener('input', (e) => {
+	console.log(e.target.value);
 });
 userSureName.addEventListener('change', (e) => {
 	user.surename = e.target.value;
@@ -88,25 +118,56 @@ radioCollections.forEach(element => {
 
 creationButton.addEventListener('click', (e) => {
 	e.preventDefault();
-	console.log(user);
-	const li1 = document.createElement('li');
 
-	li1.innerText = `${userName.value}
-	${userSureName.value}
-	${userAge.value}`;
+	arrayOfUsers.push(user);
 
-	radioCollections.forEach(item => {
-		if (item.checked) {
-			li1.style.color = item.value
-		}
+	list.innerHTML = '';
+
+	arrayOfUsers.forEach(item => {
+		const listElem = document.createElement('li');
+		listElem.innerText = `${item.name} ${item.surename} age: ${item.age}`;
+		list.append(listElem);
 	})
-	if (isStudent.checked) {
-		li1.style.fontWeight = 'bold';
-	}
-	list.append(li1);
 
 	user = {};
 	form.reset();
+	console.log(arrayOfUsers)
 })
+
+
+searchInput.addEventListener('input', (e) => {
+	const filterItem = arrayOfUsers.filter(item => {
+		if (item.surename.toLowerCase().includes(e.target.value)) return true;
+		return false;
+	})
+
+	renderList(filterItem)
+});
+
+
+const renderList = (model = arrayOfUsers) => {
+	list.innerHTML = '';
+
+	model.forEach(item => {
+		const listElem = document.createElement('li');
+		listElem.innerText = `${item.name} ${item.surename} age: ${item.age}`;
+		list.append(listElem);
+	})
+
+}
+
+sortByAgeInput.addEventListener('change', (event) => {
+	if (event.target.checked) {
+		const sortedItems = [...arrayOfUsers].sort((a, b) => a.age - b.age);
+		renderList(sortedItems);
+	} else {
+		renderList();
+	}
+})
+
+if (arrayOfUsers.length) {
+	renderList()
+}
+
 
 
