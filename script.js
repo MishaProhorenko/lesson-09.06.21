@@ -63,28 +63,33 @@ let user = {
 let arrayOfUsers = [
 	{
 		name: 'David',
-		surename: 'Ouhs',
+		surname: 'Ouhs',
 		age: 44,
+		itemID: 21,
 	},
 	{
 		name: 'Rick',
-		surename: 'Fidner',
+		surname: 'Fidner',
 		age: 13,
+		itemID: 22,
 	},
 	{
 		name: 'Georg',
-		surename: 'Kilman',
+		surname: 'Kilman',
 		age: 55,
+		itemID: 23,
 	},
 	{
 		name: 'Rob',
-		surename: 'Dikson',
+		surname: 'Dikson',
 		age: 42,
+		itemID: 24,
 	},
 	{
 		name: 'Poul',
-		surename: 'Rinnd',
+		surname: 'Rinnd',
 		age: 21,
+		itemID: 25,
 	},
 ];
 
@@ -98,8 +103,8 @@ userName.addEventListener('change', (e) => {
 userName.addEventListener('input', (e) => {
 	console.log(e.target.value);
 });
-userSureName.addEventListener('change', (e) => {
-	user.surename = e.target.value;
+userSurName.addEventListener('change', (e) => {
+	user.surname = e.target.value;
 });
 userAge.addEventListener('change', (e) => {
 	user.age = Number(e.target.value);
@@ -125,7 +130,7 @@ creationButton.addEventListener('click', (e) => {
 
 	arrayOfUsers.forEach(item => {
 		const listElem = document.createElement('li');
-		listElem.innerText = `${item.name} ${item.surename} age: ${item.age}`;
+		listElem.innerText = `${item.name} ${item.surname} age: ${item.age}`;
 		list.append(listElem);
 	})
 
@@ -137,12 +142,12 @@ creationButton.addEventListener('click', (e) => {
 
 searchInput.addEventListener('input', (e) => {
 	const filterItem = arrayOfUsers.filter(item => {
-		if (item.surename.toLowerCase().includes(e.target.value)){
+		if (item.surname.toLowerCase().includes(e.target.value)) {
 			return true;
-		} else{
+		} else {
 			return false;
 		}
-		
+
 	})
 
 	renderList(filterItem)
@@ -154,8 +159,43 @@ const renderList = (model = arrayOfUsers) => {
 
 	model.forEach(item => {
 		const listElem = document.createElement('li');
-		listElem.innerText = `${item.name} ${item.surename} age: ${item.age}`;
+		listElem.innerText = `${item.name} ${item.surname} age: ${item.age} `;
+		const deleteButton = document.createElement('button');
+		deleteButton.innerText = 'X';
+		listElem.append(deleteButton);
 		list.append(listElem);
+		deleteButton.onclick = (e) => {
+			e.preventDefault();
+			const itemSurname = listElem.innerText.split(' ')[1]
+			const filterModel = arrayOfUsers.filter(item => {
+				return item.surname != itemSurname ? true : false;
+			});
+			arrayOfUsers = filterModel;
+			renderList();
+
+
+
+			const editButton = document.createElement('button')
+			editButton.itemID = item.itemID;
+			editButton.innerText = 'edit';
+			listElem.append(editButton)
+
+			editButton.addEventListener('click', (e) => {
+				const editInput = document.createElement('input');
+				const elem = arrayOfUsers.find((item)=> item.itemID === editButton.itemID)
+				editInput.value = `${elem.name} ${elem.surname}`;
+				listElem.innerHTML = '';
+				listElem.append(editInput);
+
+				editButton.addEventListener('change', (e) => {
+					console.log(e.target.value);
+
+				});
+			});
+
+			
+
+		}
 	})
 
 }
